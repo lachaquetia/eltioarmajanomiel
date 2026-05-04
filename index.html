@@ -346,24 +346,42 @@
 
   .eventos-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 2.5rem;
     align-items: start;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
   @media (max-width: 640px) { .eventos-grid { grid-template-columns: 1fr; } }
-  .eventos-video-wrap {
-    border-radius: 1rem;
-    overflow: hidden;
-    box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+
+  /* LIGHTBOX */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
   }
-  .eventos-video-wrap video {
-    width: 100%;
-    display: block;
-    border-radius: 1rem;
+  .lightbox-overlay.active { display: flex; }
+  .lightbox-overlay img {
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: 0.75rem;
+    box-shadow: 0 8px 48px rgba(0,0,0,0.6);
+    object-fit: contain;
   }
-  .eventos-info-full {
-    margin-bottom: 1.5rem;
+  .lightbox-close {
+    position: fixed;
+    top: 1.25rem;
+    right: 1.5rem;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    background: none;
+    border: none;
+    font-weight: 300;
   }
 
   .eventos-cartel {
@@ -464,8 +482,9 @@
     border-radius: 0.75rem;
     box-shadow: 0 4px 16px rgba(0,0,0,0.15);
     transition: transform 0.2s;
+    cursor: zoom-in;
   }
-  .eventos-galeria img:hover { transform: scale(1.02); }
+  .eventos-galeria img:hover { transform: scale(1.03); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
   @media (max-width: 480px) { .eventos-galeria { grid-template-columns: 1fr; } }
 
   /* CONTACTO */
@@ -845,9 +864,15 @@
       </div>
     <!-- GALERÍA FOTOS TARRITOS -->
     <div class="eventos-galeria">
-      <img src="./fotos_tarritos_1.jpeg" alt="Tarritos de miel en retama"/>
-      <img src="./fotos_tarritos_3.jpeg" alt="Tarritos personalizados El Tío Armajano"/>
-      <img src="./fotos_tarritos9.jpeg" alt="Tarritos de miel para eventos"/>
+      <img src="./fotos_tarritos_1.jpeg" alt="Tarritos de miel en retama" onclick="openLightbox(this.src)" title="Clic para ampliar"/>
+      <img src="./fotos_tarritos_3.jpeg" alt="Tarritos personalizados El Tío Armajano" onclick="openLightbox(this.src)" title="Clic para ampliar"/>
+      <img src="./fotos_tarritos9.jpeg" alt="Tarritos de miel para eventos" onclick="openLightbox(this.src)" title="Clic para ampliar"/>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+      <img id="lightbox-img" src="" alt=""/>
     </div>
 
     </div>
@@ -910,5 +935,20 @@ viewBox="0 0 10000 7500"
 </a>
 <div id="bee-tooltip">💬 ¡Escríbenos!</div>
 
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.getElementById('lightbox-img').src = '';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
 </body>
 </html>
