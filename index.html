@@ -346,12 +346,22 @@
 
   .eventos-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 1fr 1fr 1.2fr;
+    gap: 1.5rem;
     align-items: start;
     margin-bottom: 2.5rem;
   }
-  @media (max-width: 640px) { .eventos-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 700px) { .eventos-grid { grid-template-columns: 1fr; } }
+  .eventos-video-wrap {
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+  }
+  .eventos-video-wrap video {
+    width: 100%;
+    display: block;
+    border-radius: 1rem;
+  }
 
   .eventos-cartel {
     border-radius: 1rem;
@@ -438,6 +448,23 @@
   }
   .btn-eventos-tel:hover { background: #FFF0C0; }
 
+  .eventos-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
+  .eventos-galeria img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+    transition: transform 0.2s;
+  }
+  .eventos-galeria img:hover { transform: scale(1.02); }
+  @media (max-width: 480px) { .eventos-galeria { grid-template-columns: 1fr; } }
+
   /* CONTACTO */
   .contacto { background: linear-gradient(160deg, #F5E8C0 0%, #FFF8E7 100%); }
   .contacto-inner { background: var(--white); border: 1px solid var(--border); border-radius: 1.25rem; padding: 3rem 2.5rem; text-align: center; max-width: 600px; margin: 0 auto; }
@@ -495,7 +522,7 @@
     </div>
     <div class="seal">
       <div class="seal-icon">
-        <img src="./sello_dp.png" alt="Denominación Protegida"/>
+        <img src="./sello_bonilla.png" alt="Denominación Protegida"/>
       </div>
       <span>D.P.</span>
     </div>
@@ -511,7 +538,7 @@
     </div>
     <div class="seal">
       <div class="seal-icon">
-        <img src="./sello_bonilla.png" alt="Agricultura de Bonilla UE"/>
+        <img src="./sello_dp.png" alt="Agricultura de Bonilla UE"/>
       </div>
       <span>Bonilla UE</span>
     </div>
@@ -776,19 +803,15 @@
     <span class="section-tag">Para celebrar</span>
     <h2>Miel para Eventos</h2>
 
-    <div class="eventos-hero">
-      <video class="eventos-video-bg" autoplay muted loop playsinline>
-        <source src="./video_abeja.mp4" type="video/mp4">
-      </video>
-      <div class="eventos-hero-text">
-        <h3>Disponemos de Tarritos de Miel</h3>
-        <p>Ideales para cualquier evento · Personalizamos a tu gusto</p>
-      </div>
-    </div>
-
     <div class="eventos-grid">
       <div class="eventos-cartel">
         <img src="./cartel_eventos.jpg" alt="Tarritos de miel para eventos - El Tío Armajano"/>
+      </div>
+
+      <div class="eventos-video-wrap">
+        <video autoplay muted loop playsinline>
+          <source src="./video_abeja.mp4" type="video/mp4">
+        </video>
       </div>
 
       <div class="eventos-info">
@@ -817,6 +840,13 @@
           📞 &nbsp;605 46 56 32
         </a>
       </div>
+    <!-- GALERÍA FOTOS TARRITOS -->
+    <div class="eventos-galeria">
+      <img src="./fotos_tarritos_1.jpeg" alt="Tarritos de miel en retama"/>
+      <img src="./fotos_tarritos_3.jpeg" alt="Tarritos personalizados El Tío Armajano"/>
+      <img src="./fotos_tarritos9.jpeg" alt="Tarritos de miel para eventos"/>
+    </div>
+
     </div>
   </div>
 </section>
