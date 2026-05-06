@@ -240,6 +240,17 @@
   .prop-pill .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--amber); font-weight: 700; display: block; margin-bottom: 0.25rem; }
   .prop-pill .value { font-size: 0.9rem; color: var(--brown); }
 
+  .miel-hero-img {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    object-position: center 30%;
+    border-radius: 1.25rem;
+    box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+    margin-bottom: 2.5rem;
+    display: block;
+  }
+
   /* PROPIEDADES */
   .propiedades { background: var(--brown); color: var(--cream); }
   .propiedades h2 { color: var(--amber-light); }
@@ -622,6 +633,8 @@
     <h2>Miel de retama, única y peculiar</h2>
     <p>Una miel de carácter: su color varía desde los tonos ambarinos claros ligeramente dorados hasta los pardo rojizos, y su sabor es dulce muy agradable con ligeros tiznes salados. Un perfil sensorial que no encontrarás en otra miel.</p>
 
+    <img src="./Imagen_para_web.png" alt="Tarro de miel El Tío Armajano con el chozo de Bonilla al fondo" class="miel-hero-img"/>
+
     <div class="miel-card">
       <div class="miel-header">
         <span style="font-size:2.5rem">🌼</span>
@@ -854,12 +867,6 @@
         <img src="./cartel_eventos.jpg" alt="Tarritos de miel para eventos - El Tío Armajano"/>
       </div>
 
-      <div class="eventos-video-wrap">
-        <video autoplay muted loop playsinline>
-          <source src="./video_abeja.mp4" type="video/mp4">
-        </video>
-      </div>
-
       <div class="eventos-info">
         <span class="gracias-tag">❤️ "Gracias por endulzar cada momento"</span>
 
@@ -873,19 +880,9 @@
           <span class="evento-tipo">🎂 Cumpleaños</span>
           <span class="evento-tipo">🎉 Y más celebraciones</span>
         </div>
-
-        <div class="personalizacion-box">
-          <h4>¡Personalizamos los tarritos!</h4>
-          <p>Etiqueta, tapa y detalles a tu gusto para hacer tu evento único e inolvidable.</p>
-        </div>
-
-        <a href="https://wa.me/34605465632?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20los%20tarritos%20de%20miel%20para%20eventos%20%F0%9F%8D%AF" target="_blank" class="btn-eventos-wa">
-          💬 &nbsp;Pedir información por WhatsApp
-        </a>
-        <a href="tel:+34605465632" class="btn-eventos-tel">
-          📞 &nbsp;605 46 56 32
-        </a>
       </div>
+    </div>
+
     <!-- GALERÍA FOTOS TARRITOS -->
     <div class="eventos-galeria">
       <img src="./fotos_tarritos_1.jpeg" alt="Tarritos de miel en retama" onclick="openLightbox(this.src)" title="Clic para ampliar"/>
@@ -893,12 +890,25 @@
       <img src="./fotos_tarritos9.jpeg" alt="Tarritos de miel para eventos" onclick="openLightbox(this.src)" title="Clic para ampliar"/>
     </div>
 
+    <!-- PERSONALIZACIÓN Y CONTACTO -->
+    <div class="personalizacion-box" style="margin-top:1.5rem;">
+      <h4>¡Personalizamos los tarritos!</h4>
+      <p>Etiqueta, tapa y detalles a tu gusto para hacer tu evento único e inolvidable.</p>
+    </div>
+
+    <div style="display:flex;gap:0.75rem;flex-wrap:wrap;margin-top:1rem;">
+      <a href="https://wa.me/34605465632?text=Hola%2C%20me%20gustar%C3%ADa%20informaci%C3%B3n%20sobre%20los%20tarritos%20de%20miel%20para%20eventos%20%F0%9F%8D%AF" target="_blank" class="btn-eventos-wa" style="flex:1;min-width:220px;">
+        💬 &nbsp;Pedir información por WhatsApp
+      </a>
+      <a href="tel:+34605465632" class="btn-eventos-tel" style="flex:1;min-width:220px;">
+        📞 &nbsp;605 46 56 32
+      </a>
+    </div>
+
     <!-- LIGHTBOX -->
     <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
       <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
       <img id="lightbox-img" src="" alt=""/>
-    </div>
-
     </div>
   </div>
 </section>
